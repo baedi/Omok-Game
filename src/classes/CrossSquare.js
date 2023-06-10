@@ -1,6 +1,6 @@
 function CrossSquare(props){
     return(
-        <button className='crossSquare' onClick={props.onClick}>
+        <button className='cross_square' onClick={props.onClick}>
             {props.value}
         </button>
     );

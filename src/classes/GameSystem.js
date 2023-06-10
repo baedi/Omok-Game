@@ -5,7 +5,7 @@ class GameSystem extends React.Component{
 
     render(){
         return(
-            <div className='gameSystem'>
+            <div className='game_system'>
                 <GameBoard/>
             </div>
 

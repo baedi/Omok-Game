@@ -1,0 +1,46 @@
+body {
+    font-size: 14px;
+    font-family: "Arial", sans-serif, Georgia;
+    margin: 20px;
+}
+
+.game_system{
+    display: flex;
+    flex-direction: row;
+}
+
+.game_board{
+
+}
+
+.game_board_row{
+    width: 720px;
+}
+
+.game_board_row:after{
+    clear: both;
+    content: "";
+    display: inline;
+    overflow: hidden;
+}
+
+.cross_square{
+    background: white;
+    border: 1px solid black;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding: 0px;
+    float: left;
+}
+
+.cross_square:hover {
+    background: yellow;
+    outline: none;
+}
+
+.cross_square:focus{
+    outline: none;
+}
