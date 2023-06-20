@@ -1,7 +1,7 @@
 import React from 'react'
 import CrossSquare from 'classes/CrossSquare'
 import Token from 'classes/Token'
-import RenjuRule from "./RenjuRule";
+import RenjuRule from "classes/RenjuRule";
 
 class GameBoard extends React.Component{
     constructor(props) {
@@ -20,7 +20,7 @@ class GameBoard extends React.Component{
             isEndGame: false
         }
     }
-    handleClick(row, col){
+    checkField(row, col){
         let maxConnTokenCnt;
         const crossSquares = this.state.crossSquares.slice();
         let isBlackTurn = this.state.isBlackTurn;
@@ -29,28 +29,31 @@ class GameBoard extends React.Component{
         if(isEndGame)
             return;
 
-        // 이미 말이 놓여있는지 확인
         if(crossSquares[row][col] !== Token.empty()){
             alert("This Square has already token.")
             return;
         }
 
-        // 말 5개 완성 여부
         maxConnTokenCnt = RenjuRule.maxConnectToken(isBlackTurn, crossSquares, row, col)
-        if(maxConnTokenCnt >= 5){
+        if((!isBlackTurn && maxConnTokenCnt >= 5) || (isBlackTurn && maxConnTokenCnt === 5)){
             alert((isBlackTurn ? "Black" : "White") + " Win!");
             isEndGame = true;
         }
 
-        // 렌주룰 적용 코드
+        // Renju Rule process (Over token, 3-3, 4-4)
         if(isBlackTurn){
-            if(RenjuRule.check33(crossSquares, row, col)){
-                alert("");
+            if(isBlackTurn && maxConnTokenCnt > 5){
+                alert("Black tokens cannot make more than six consecutive tokens.");
                 return;
             }
 
-            if(RenjuRule.check44(crossSquares, row, col)){
-                alert("");
+            if(RenjuRule.isDoubleOpenThree(crossSquares, row, col)){
+                alert("Black tokens cannot make open three continuously.");
+                return;
+            }
+
+            if(RenjuRule.isDoubleOpenFour(crossSquares, row, col)){
+                alert("Black tokens cannot make open four continuously.");
                 return;
             }
         }
@@ -70,11 +73,7 @@ class GameBoard extends React.Component{
             <div className='game_board_row'>{
                 colArr.map(function(obj, col){
                     return(
-                        <CrossSquare
-                            value={obj}
-                            onClick={() => {handleObj.handleClick(row, col)}}
-                            key={row + "r" + col + "c"}
-                        />
+                        <CrossSquare value={obj} onClick={() => {handleObj.checkField(row, col)}} key={row + "r" + col + "c"}/>
                     )
                 })
             }
