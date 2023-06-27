@@ -31,7 +31,7 @@ class RenjuRule{
         return maxConnTokenCnt;
     }
 
-    static isDoubleOpenThree(crossSquares, row, col){
+    static is3_3(crossSquares, row, col){
         let openCnt = 0;
         let blackCnt, emptyCnt;
         let frontRow, frontCol, backRow, backCol, curRow, curCol;
@@ -128,8 +128,51 @@ class RenjuRule{
         return openCnt >= 2 ? true : false;
     }
 
-    static isDoubleOpenFour(crossSquares, row, col){
-        // ready
+    static is4_4(crossSquares, row, col){
+        let openCnt = 0;
+        let blackCnt, emptyCnt;
+        let curRow, curCol;
+
+        const maxBoardLen = crossSquares.length;
+        let moveRow = [ 0,  0, -1,  1, -1,  1, -1,  1];
+        let moveCol = [-1,  1,  0,  0, -1,  1,  1, -1];
+
+
+        for(let i=0; i<moveRow.length; i++){
+            blackCnt = 1;
+            emptyCnt = 0;
+
+            // Back Check
+            curRow = row - moveRow[i];
+            curCol = col - moveCol[i];
+            if(this.isInRange(curRow, curCol, maxBoardLen)){
+                if(crossSquares[curRow][curCol] === Token.black())
+                    blackCnt++;
+            }
+
+            // Front Check
+            curRow = row + moveRow[i];
+            curCol = col + moveCol[i];
+            while(this.isInRange(curRow, curCol, maxBoardLen) && emptyCnt < 2){
+                if(crossSquares[curRow][curCol] === Token.black())
+                    blackCnt++;
+
+                else if(crossSquares[curRow][curCol] === Token.empty())
+                    emptyCnt++;
+
+                else
+                    break;
+
+
+                curRow = curRow + moveRow[i];
+                curCol = curCol + moveCol[i];
+            }
+
+            if(blackCnt === 4)
+                openCnt++;
+        }
+
+        return openCnt >= 2 ? true : false;
     }
 
     static isInRange(row, col, maxLen){

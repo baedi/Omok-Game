@@ -24,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-.cross_square{
+.cross_square1, .cross_square2{
     background: white;
     border: 1px solid black;
     width: 48px;
@@ -36,11 +36,16 @@ body {
     float: left;
 }
 
-.cross_square:hover {
+.cross_square1:hover {
     background: yellow;
     outline: none;
 }
 
-.cross_square:focus{
+.cross_square2:hover {
+    background: yellow;
+    outline: none;
+}
+
+.cross_square1, cross_square2:focus{
     outline: none;
 }

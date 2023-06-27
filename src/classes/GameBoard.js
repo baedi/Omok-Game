@@ -39,22 +39,23 @@ class GameBoard extends React.Component{
             alert((isBlackTurn ? "Black" : "White") + " Win!");
             isEndGame = true;
         }
+        else{
+            // Renju Rule process (Over token, 3-3, 4-4)
+            if(isBlackTurn){
+                if(isBlackTurn && maxConnTokenCnt > 5){
+                    alert("Black tokens cannot make more than six consecutive tokens.");
+                    return;
+                }
 
-        // Renju Rule process (Over token, 3-3, 4-4)
-        if(isBlackTurn){
-            if(isBlackTurn && maxConnTokenCnt > 5){
-                alert("Black tokens cannot make more than six consecutive tokens.");
-                return;
-            }
+                if(RenjuRule.is3_3(crossSquares, row, col)){
+                    alert("Black tokens cannot make open three continuously.");
+                    return;
+                }
 
-            if(RenjuRule.isDoubleOpenThree(crossSquares, row, col)){
-                alert("Black tokens cannot make open three continuously.");
-                return;
-            }
-
-            if(RenjuRule.isDoubleOpenFour(crossSquares, row, col)){
-                alert("Black tokens cannot make open four continuously.");
-                return;
+                if(RenjuRule.is4_4(crossSquares, row, col)){
+                    alert("Black tokens cannot make open four continuously.");
+                    return;
+                }
             }
         }
 
