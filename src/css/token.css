@@ -1,0 +1,42 @@
+.cross_square{
+    background: white;
+    border: 1px solid black;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding: 0px;
+    float: left;
+}
+
+.c_square_empty, .c_square_black, .c_square_white{
+    width: 100%;
+    height: 100%;
+}
+
+.c_square_empty{
+    content:url("img/empty.png");
+}
+
+#c_square_next_black:hover{
+    filter:brightness(1);
+    opacity:1.0;
+    content:url("img/black.png");
+    outline:none;
+}
+
+#c_square_next_white:hover{
+    filter:brightness(1);
+    opacity:1.0;
+    content:url("img/white.png");
+    outline:none;
+}
+
+.c_square_black{
+    content:url("img/black.png");
+}
+
+.c_square_white{
+    content:url("img/white.png");
+}

@@ -74,7 +74,7 @@ class GameBoard extends React.Component{
             <div className='game_board_row'>{
                 colArr.map(function(obj, col){
                     return(
-                        <CrossSquare value={obj} onClick={() => {handleObj.checkField(row, col)}} key={row + "r" + col + "c"}/>
+                        <CrossSquare value={obj} turn={handleObj.state.isBlackTurn} onClick={() => {handleObj.checkField(row, col)}} key={row + "r" + col + "c"}/>
                     )
                 })
             }
