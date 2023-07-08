@@ -35,7 +35,6 @@ class RenjuRule{
         let openCnt = 0;
         let blackCnt, emptyCnt;
         let frontRow, frontCol, backRow, backCol, curRow, curCol;
-        let isWhite;
         let blockEmptyCnt
 
         const maxBoardLen = crossSquares.length;
@@ -47,7 +46,7 @@ class RenjuRule{
         for(let i=0; i<isOpen.length; i++){
             blackCnt = 1;
             emptyCnt = 0;
-            isWhite = false;
+            //isWhite = false;
             blockEmptyCnt = [0, 0];
 
             backRow = frontRow = row;
@@ -73,24 +72,23 @@ class RenjuRule{
             curRow = row + moveRow[i];
             curCol = col + moveCol[i];
             while(this.isInRange(curRow, curCol, maxBoardLen) && emptyCnt < 2){
-                switch(crossSquares[curRow][curCol]){
-                    case Token.black():
-                        frontRow = curRow;
-                        frontCol = curCol;
-                        blackCnt++;
-                        break;
-                    case Token.white():
-                        isWhite = true;
-                        break;
-                    default:
-                        emptyCnt++;
+                if(crossSquares[curRow][curCol] === Token.black()){
+                    frontRow = curRow;
+                    frontCol = curCol;
+                    blackCnt++;
+                }
+                else if(crossSquares[curRow][curCol] === Token.white()){
+                    break;
+                }
+                else{
+                    emptyCnt++;
                 }
 
                 curRow = curRow + moveRow[i];
                 curCol = curCol + moveCol[i];
             }
 
-            if(blackCnt !== 3 || isWhite)
+            if(blackCnt !== 3)
                 continue;
 
             // Back Check 2
@@ -98,8 +96,11 @@ class RenjuRule{
                 backRow = backRow - moveRow[i];
                 backCol = backCol - moveCol[i];
 
-                if(this.isInRange(backRow, backCol, maxBoardLen) && crossSquares[backRow][backCol] === Token.empty()){
-                    blockEmptyCnt[j]++;
+                if(this.isInRange(backRow, backCol, maxBoardLen)){
+                    if(crossSquares[backRow][backCol] === Token.empty())
+                        blockEmptyCnt[j]++;
+                    else if(crossSquares[backRow][backCol] === Token.black())
+                        blackCnt++;
                 }
             }
 
@@ -108,13 +109,16 @@ class RenjuRule{
                 frontRow = frontRow + moveRow[i];
                 frontCol = frontCol + moveCol[i];
 
-                if(this.isInRange(frontRow, frontCol, maxBoardLen) && crossSquares[frontRow][frontCol] === Token.empty()){
-                    blockEmptyCnt[j]++;
+                if(this.isInRange(frontRow, frontCol, maxBoardLen)){
+                    if(crossSquares[frontRow][frontCol] === Token.empty())
+                        blockEmptyCnt[j]++;
+                    else if(crossSquares[frontRow][frontCol] === Token.black())
+                        blackCnt++;
                 }
             }
 
             // Results
-            if(blockEmptyCnt[0] >= 2 && blockEmptyCnt[1] >= 1){
+            if(blockEmptyCnt[0] >= 2 && blockEmptyCnt[1] >= 1 && blackCnt === 3){
                 isOpen[i] = true;
             }
         }

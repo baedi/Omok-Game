@@ -1,11 +1,11 @@
 .cross_square{
     background: white;
-    border: 1px solid black;
+    border: 0px solid black;
     width: 48px;
     height: 48px;
     line-height: 48px;
-    margin-left: -1px;
-    margin-top: -1px;
+    margin-left: 0px;
+    margin-top: 0px;
     padding: 0px;
     float: left;
 }
@@ -16,27 +16,27 @@
 }
 
 .c_square_empty{
-    content:url("img/empty.png");
+    content:url("img/board_square.png");
 }
 
 #c_square_next_black:hover{
     filter:brightness(1);
     opacity:1.0;
-    content:url("img/black.png");
+    content:url("img/token_ready_black.png");
     outline:none;
 }
 
 #c_square_next_white:hover{
     filter:brightness(1);
     opacity:1.0;
-    content:url("img/white.png");
+    content:url("img/token_ready_white.png");
     outline:none;
 }
 
 .c_square_black{
-    content:url("img/black.png");
+    content:url("img/token_black.png");
 }
 
 .c_square_white{
-    content:url("img/white.png");
+    content:url("img/token_white.png");
 }

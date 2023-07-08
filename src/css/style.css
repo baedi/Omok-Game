@@ -13,8 +13,13 @@ body {
 
 }
 
+.game_board_frame{
+    margin: 24px;
+}
+
 .game_board_row{
     width: 720px;
+    padding: 20px;
 }
 
 .game_board_row:after{
