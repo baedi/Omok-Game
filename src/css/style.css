@@ -2,19 +2,16 @@ body {
     font-size: 14px;
     font-family: "Arial", sans-serif, Georgia;
     margin: 20px;
+    background: #fff4db;
 }
 
 .game_system{
-    display: inline;
+    display: inline-block;
     flex-direction: row;
 }
 
 .game_board{
-
-}
-
-.game_board_frame{
-    margin: 24px;
+    display: inline-block;
 }
 
 .game_board_row{
@@ -27,4 +24,22 @@ body {
     content: "";
     display: inline;
     overflow: hidden;
+}
+
+.game_info{
+    width:100%;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 1024px){
+    .game_board{
+        display: inline-block;
+        float: left;
+    }
+
+    .game_system{
+        display: inline;
+        flex-direction: row;
+    }
 }

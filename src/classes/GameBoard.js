@@ -9,11 +9,14 @@ class GameBoard extends React.Component{
             <div className='game_board_row'>{
                 colArr.map(function(obj, col){
                     return(
-                        <CrossSquare
-                            value={obj}
-                            turn={handleObj.props.isBlackTurn}
-                            onClick={() => {handleObj.props.onClick(row, col)}}
-                            key={row + "r" + col + "c"}/>
+                        <div>
+                            <CrossSquare
+                                value={obj}
+                                turn={handleObj.props.isBlackTurn}
+                                onClick={() => {handleObj.props.onClick(row, col)}}
+                                maxBoardSize={handleObj.props.maxLength}
+                                row={row} col={col} key={row + "r" + col + "c"}/>
+                        </div>
                     )
                 })
             }
@@ -25,7 +28,7 @@ class GameBoard extends React.Component{
         const handleObj = this;
         return(
             this.props.crossSquares.map(function(obj, idx){
-                return handleObj.makeColGameBoard(obj, idx);
+                return handleObj.makeColGameBoard(obj, idx)
             })
         )
     }

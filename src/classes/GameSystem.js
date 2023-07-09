@@ -65,14 +65,9 @@ class GameSystem extends React.Component{
             }
         }
 
-
-        for(let i=saveTurn.length-1; i>=currTurnIdx; i--){
-            saveTurn.pop();
-        }
-        saveTurn.push(JSON.parse(JSON.stringify(crossSquares)));
+        this.removeTurn(saveTurn, currTurnIdx);
         crossSquares[row][col] = isBlackTurn ? Token.black() : Token.white();
-
-
+        saveTurn.push(this.deepCopyCrossSquare(crossSquares));
 
         this.setState({
             crossSquares: crossSquares,
@@ -88,34 +83,46 @@ class GameSystem extends React.Component{
         return(
           this.state.saveTurn.map(function(obj, idx) {
               return (
-                  <button onClick={() => handleObj.loadGame(idx)}>save {idx}</button>
+                  <button onClick={() => handleObj.loadGame(idx)} key={idx}>save {idx}</button>
               );
           })
         );
     }
 
     loadGame(idx){
+        const saveCrossSquares = this.state.saveTurn[idx].slice();
+
         this.setState({
-            crossSquares: this.state.saveTurn[idx],
-            isBlackTurn: idx % 2 === 0,
-            isEndGame: false,
-            currTurnIdx: idx
+            crossSquares: this.deepCopyCrossSquare(saveCrossSquares),
+            isBlackTurn: idx % 2 !== 0,
+            currTurnIdx: idx + 1
         })
     }
 
-    render(){
-        console.log(this.state.saveTurn);
+    removeTurn(saveTurn, idx){
+        for(let i=saveTurn.length-1; i>=idx; i--){
+            saveTurn.pop();
+        }
+    }
 
+    deepCopyCrossSquare(crossSquares){
+        return JSON.parse(JSON.stringify(crossSquares))
+    }
+
+    render(){
         return(
             <div className='game_system'>
                 <GameBoard
                     crossSquares={this.state.crossSquares}
                     isBlackTurn={this.state.isBlackTurn}
+                    maxLength={this.state.crossSquares.length}
                     onClick={(r, c) => this.checkField(r, c)}
                 />
-                <div>Omok Game (Renju-rule) Test Version!</div>
-                <div>Coming Soon...</div>
-                {this.makeLoadGameButton()}
+                <div className='game_info'>
+                    <h1 className='game_title'>Omok Game (Renju-Rule)</h1>
+                    <div>Coming Soon...</div>
+                    {this.makeLoadGameButton()}
+                </div>
             </div>
         )
     }
