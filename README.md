@@ -33,5 +33,5 @@ Renju-Rule has been implemented based on this document, but exceptions may occur
 If you have any questions about bugs or improvements, please leave your comments on the Issue tab.
 
 
-- React Tutorial (Tic-Tae-Toe) : https://ko.legacy.reactjs.org/tutorial/tutorial.html
+- React Tutorial (Tic-Tae-Toe) : https://legacy.reactjs.org/tutorial/tutorial.html
 - Renju-Rule : https://namu.wiki/w/%EC%98%A4%EB%AA%A9/%EB%A3%B0%EC%9D%98%20%EC%A2%85%EB%A5%98
