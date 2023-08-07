@@ -5,6 +5,21 @@ body {
     background: #fff4db;
 }
 
+li{
+    list-style-type: none;
+    margin:12px;
+}
+
+summary{
+    font-size: 20px;
+}
+
+.text_box{
+    padding:16px;
+    display:inline-list-item;
+    background: white;
+}
+
 .game_system{
     display: inline-block;
     flex-direction: row;
@@ -31,8 +46,27 @@ body {
     text-align: center;
 }
 
+.sub_title_box{
+    text-align: left;
+    width:100%;
+    height:32px;
+    font-size: 24px;
+    font-weight: bold;
+    background: orange;
+    /*text-decoration: underline;*/
+}
 
-@media screen and (min-width: 1024px){
+button.reset_btn{
+    width:100px;
+    height:32px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    margin:12px;
+}
+
+
+@media screen and (min-width: 1200px){
     .game_board{
         display: inline-block;
         float: left;

@@ -1,7 +1,7 @@
 import React from 'react'
 import GameBoard from 'classes/GameBoard'
 import Token from 'classes/Token'
-import RenjuRule from "./RenjuRule";
+import RenjuRule from 'classes/RenjuRule'
 
 class GameSystem extends React.Component{
 
@@ -19,6 +19,10 @@ class GameSystem extends React.Component{
             isEndGame: false,
             currTurnIdx: 0,
             saveTurn: [],
+
+            ruleBoxOpen: true,
+            checkPointBoxOpen: true,
+            creditBoxOpen: true,
         }
     }
 
@@ -119,9 +123,35 @@ class GameSystem extends React.Component{
                     onClick={(r, c) => this.checkField(r, c)}
                 />
                 <div className='game_info'>
-                    <h1 className='game_title'>Omok Game (Renju-Rule)</h1>
-                    <div>Coming Soon...</div>
-                    {this.makeLoadGameButton()}
+                    <h1 className='game_title'>Omok Game (Renju-Rule)
+                        <button className='reset_btn' onClick={() => window.location.reload()}>Reset</button>
+                    </h1>
+
+                    <ul>
+                        <div className='sub_title_box' onClick={() => {this.setState({ruleBoxOpen : !this.state.ruleBoxOpen});}}>Rule</div>
+                        <div className='text_box' style={{display:!this.state.ruleBoxOpen ? 'none' : ''}}>
+                            <li>1. You can place one token anywhere you want on each turn. The progression sequence starts with the black one first, and the white one is the second.</li>
+                            <li>2. The first player to make a straight line or diagonal line of five consecutive tokens wins.</li>
+                            <li>3. Black Token does not allow straight, diagonal arrangements consisting of Open Three (3-3), Open Four (4-4), and six or more consecutive Tokens. (However, if a straight line or diagonal line consisting of five consecutive tokens is made when placed in a position where Open Three (3-3) or Open Four (4-4) can occur, it will be recognized as a victory regardless of the rule.)</li>
+                        </div>
+                    </ul>
+                    &nbsp;
+                    <ul>
+                        <div className='sub_title_box' onClick={() => {this.setState({checkPointBoxOpen: !this.state.checkPointBoxOpen});}}>Check Point</div>
+                        <div className='text_box' style={{display:!this.state.checkPointBoxOpen ? 'none' : ''}}>
+                            {this.makeLoadGameButton()}
+                        </div>
+                    </ul>
+                    &nbsp;
+                    <ul>
+                        <div className='sub_title_box' onClick={() => {this.setState({creditBoxOpen: !this.state.creditBoxOpen});}}>Credit</div>
+                        <div className='text_box' style={{display:!this.state.creditBoxOpen ? 'none' : ''}}>
+                            <li>Created by baedi</li>
+                            &nbsp;
+                            <li>Github : <a href='https://github.com/baedi/Omok-Game'>https://github.com/baedi/Omok-Game</a></li>
+                            <li>Reference : <a href='https://ko.legacy.reactjs.org/tutorial/tutorial.html'>https://ko.legacy.reactjs.org/tutorial/tutorial.html</a></li>
+                        </div>
+                    </ul>
                 </div>
             </div>
         )
