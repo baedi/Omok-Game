@@ -41,7 +41,7 @@ You can download the files by clicking on the program name below.
 - [Node.js](https://nodejs.org/download/release/v16.20.1/) (v16.20.x)
 - [Visual Studio Code](https://code.visualstudio.com/) (Alternatively, you can use a different editor or IDE.)
 
-#### 설치 및 실행 방법
+#### Installation and execution methods
 * This installation and execution method is based on Visual Studio Code.
 ```
 1. Download necessary programs such as Node.js, Visual Studio Code, etc.
