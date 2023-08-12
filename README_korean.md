@@ -1,5 +1,7 @@
 ## 오목 게임 (렌주룰)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/73bb3f0a-562e-4df6-864b-26937116fca7/deploy-status)](https://app.netlify.com/sites/baedi-omok-game/deploys)
+
 언어 : [영어](./README.md) / [한국어](./README_korean.md)
 
 ![HTML5](https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
