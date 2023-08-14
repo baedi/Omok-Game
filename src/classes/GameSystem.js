@@ -8,13 +8,8 @@ class GameSystem extends React.Component{
     constructor(props){
         super(props);
 
-        let arr = Array.from({length:15}, () => []);
-        for(let i=0; i<arr.length; i++)
-            for(let j=0; j<arr.length; j++)
-                arr[i].push(Token.empty());
-
         this.state = {
-            crossSquares: arr,
+            crossSquares: this.initCrossSquares(),
             isBlackTurn: true,
             isEndGame: false,
             currTurnIdx: 0,
@@ -23,7 +18,30 @@ class GameSystem extends React.Component{
             ruleBoxOpen: true,
             checkPointBoxOpen: true,
             creditBoxOpen: true,
-        }
+        };
+    }
+
+    initState(){
+        this.setState({
+            crossSquares: this.initCrossSquares(),
+            isBlackTurn: true,
+            isEndGame: false,
+            currTurnIdx: 0,
+            saveTurn: [],
+
+            ruleBoxOpen: true,
+            checkPointBoxOpen: true,
+            creditBoxOpen: true,
+        })
+    }
+
+    initCrossSquares(){
+        let arr = Array.from({length:15}, () => []);
+        for(let i=0; i<arr.length; i++)
+            for(let j=0; j<arr.length; j++)
+                arr[i].push(Token.empty());
+
+        return arr;
     }
 
     checkField(row, col){
@@ -93,6 +111,10 @@ class GameSystem extends React.Component{
         );
     }
 
+    resetGame(){
+        this.initState();
+    }
+
     loadGame(idx){
         const saveCrossSquares = this.state.saveTurn[idx].slice();
 
@@ -124,7 +146,7 @@ class GameSystem extends React.Component{
                 />
                 <div className='game_info'>
                     <h1 className='game_title'>Omok Game (Renju-Rule)
-                        <button className='reset_btn' onClick={() => window.location.reload()}>Reset</button>
+                        <button className='reset_btn' onClick={() => this.resetGame()}>Reset</button>
                     </h1>
 
                     <ul>

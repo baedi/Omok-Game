@@ -1,3 +1,102 @@
+:root{
+    --board_square: url("img/board_square.png");
+    --board_square_left: url("img/board_square_left.png");
+    --board_square_right: url("img/board_square_right.png");
+    --board_square_top: url("img/board_square_top.png");
+    --board_square_bottom: url("img/board_square_bottom.png");
+    --board_square_corner1: url("img/board_square_corner1.png");
+    --board_square_corner2: url("img/board_square_corner2.png");
+    --board_square_corner3: url("img/board_square_corner3.png");
+    --board_square_corner4: url("img/board_square_corner4.png");
+
+    --token_black: url("img/token_black.png");
+    --token_top_black: url("img/token_top_black.png");
+    --token_bottom_black: url("img/token_bottom_black.png");
+    --token_left_black: url("img/token_left_black.png");
+    --token_right_black: url("img/token_right_black.png");
+    --token_corner1_black: url("img/token_corner1_black.png");
+    --token_corner2_black: url("img/token_corner2_black.png");
+    --token_corner3_black: url("img/token_corner3_black.png");
+    --token_corner4_black: url("img/token_corner4_black.png");
+
+    --token_white: url("img/token_white.png");
+    --token_top_white: url("img/token_top_white.png");
+    --token_bottom_white: url("img/token_bottom_white.png");
+    --token_left_white: url("img/token_left_white.png");
+    --token_right_white: url("img/token_right_white.png");
+    --token_corner1_white: url("img/token_corner1_white.png");
+    --token_corner2_white: url("img/token_corner2_white.png");
+    --token_corner3_white: url("img/token_corner3_white.png");
+    --token_corner4_white: url("img/token_corner4_white.png");
+
+    --token_ready_black: url("img/token_ready_black.png");
+    --token_top_ready_black: url("img/token_top_ready_black.png");
+    --token_bottom_ready_black: url("img/token_bottom_ready_black.png");
+    --token_left_ready_black: url("img/token_left_ready_black.png");
+    --token_right_ready_black: url("img/token_right_ready_black.png");
+    --token_corner1_ready_black: url("img/token_corner1_ready_black.png");
+    --token_corner2_ready_black: url("img/token_corner2_ready_black.png");
+    --token_corner3_ready_black: url("img/token_corner3_ready_black.png");
+    --token_corner4_ready_black: url("img/token_corner4_ready_black.png");
+
+    --token_ready_white: url("img/token_ready_white.png");
+    --token_top_ready_white: url("img/token_top_ready_white.png");
+    --token_bottom_ready_white: url("img/token_bottom_ready_white.png");
+    --token_left_ready_white: url("img/token_left_ready_white.png");
+    --token_right_ready_white: url("img/token_right_ready_white.png");
+    --token_corner1_ready_white: url("img/token_corner1_ready_white.png");
+    --token_corner2_ready_white: url("img/token_corner2_ready_white.png");
+    --token_corner3_ready_white: url("img/token_corner3_ready_white.png");
+    --token_corner4_ready_white: url("img/token_corner4_ready_white.png");
+}
+
+body::after{
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+    z-index:-1;
+
+    content:
+            var(--board_square)
+            var(--token_black)
+            var(--token_top_black)
+            var(--token_bottom_black)
+            var(--token_left_black)
+            var(--token_right_black)
+            var(--token_corner1_black)
+            var(--token_corner2_black)
+            var(--token_corner3_black)
+            var(--token_corner4_black)
+            var(--token_white)
+            var(--token_top_white)
+            var(--token_bottom_white)
+            var(--token_left_white)
+            var(--token_right_white)
+            var(--token_corner1_white)
+            var(--token_corner2_white)
+            var(--token_corner3_white)
+            var(--token_corner4_white)
+            var(--token_ready_black)
+            var(--token_top_ready_black)
+            var(--token_bottom_ready_black)
+            var(--token_left_ready_black)
+            var(--token_right_ready_black)
+            var(--token_corner1_ready_black)
+            var(--token_corner2_ready_black)
+            var(--token_corner3_ready_black)
+            var(--token_corner4_ready_black)
+            var(--token_ready_white)
+            var(--token_top_ready_white)
+            var(--token_bottom_ready_white)
+            var(--token_left_ready_white)
+            var(--token_right_ready_white)
+            var(--token_corner1_ready_white)
+            var(--token_corner2_ready_white)
+            var(--token_corner3_ready_white)
+            var(--token_corner4_ready_white)
+}
+
 .cross_square, .cross_square_fix{
     background: white;
     border: 0px solid black;
@@ -42,111 +141,111 @@
 }
 
 .c_square_empty{
-    content:url("img/board_square.png");
+    content:var(--board_square);
 }
 
 .c_square_left_empty{
-    content:url("img/board_square_left.png");
+    content:var(--board_square_left);
 }
 
 .c_square_right_empty{
-    content:url("img/board_square_right.png");
+    content:var(--board_square_right);
 }
 
 .c_square_top_empty{
-    content:url("img/board_square_top.png");
+    content:var(--board_square_top);
 }
 
 .c_square_bottom_empty{
-    content:url("img/board_square_bottom.png");
+    content:var(--board_square_bottom);
 }
 
 .c_square_corner1_empty{
-    content:url("img/board_square_corner1.png");
+    content:var(--board_square_corner1);
 }
 
 .c_square_corner2_empty{
-    content:url("img/board_square_corner2.png");
+    content:var(--board_square_corner2);
 }
 
 .c_square_corner3_empty{
-    content:url("img/board_square_corner3.png");
+    content:var(--board_square_corner3);
 }
 
 .c_square_corner4_empty{
-    content:url("img/board_square_corner4.png");
+    content:var(--board_square_corner4);
 }
 
 .c_square_black{
-    content:url("img/token_black.png");
+    content:var(--token_black);
 }
 
 .c_square_top_black{
-    content:url("img/token_top_black.png");
+    content:var(--token_top_black);
 }
 
 .c_square_bottom_black{
-    content:url("img/token_bottom_black.png");
+    content:var(--token_bottom_black);
 }
 
 .c_square_left_black{
-    content:url("img/token_left_black.png");
+    content:var(--token_left_black);
 }
 
 .c_square_right_black{
-    content:url("img/token_right_black.png");
+    content:var(--token_right_black);
 }
 
 .c_square_corner1_black{
-    content:url("img/token_corner1_black.png");
+    content:var(--token_corner1_black);
 }
 
 .c_square_corner2_black{
-    content:url("img/token_corner2_black.png");
+    content:var(--token_corner2_black);
 }
 
 .c_square_corner3_black{
-    content:url("img/token_corner3_black.png");
+    content:var(--token_corner3_black);
 }
 
 .c_square_corner4_black{
-    content:url("img/token_corner4_black.png");
+    content:var(--token_corner4_black);
 }
 
 .c_square_white{
-    content:url("img/token_white.png");
+    content:var(--token_white);
 }
 
 .c_square_top_white{
-    content:url("img/token_top_white.png");
+    content:var(--token_top_white);
 }
 
 .c_square_bottom_white{
-    content:url("img/token_bottom_white.png");
+    content:var(--token_bottom_white);
 }
 
 .c_square_left_white{
-    content:url("img/token_left_white.png");
+    content:var(--token_left_white);
 }
 
 .c_square_right_white{
-    content:url("img/token_right_white.png");
+    content:var(--token_right_white);
 }
 
 .c_square_corner1_white{
-    content:url("img/token_corner1_white.png");
+    content:var(--token_corner1_white);
 }
 
 .c_square_corner2_white{
-    content:url("img/token_corner2_white.png");
+    content:var(--token_corner2_white);
 }
 
 .c_square_corner3_white{
-    content:url("img/token_corner3_white.png");
+    content:var(--token_corner3_white);
 }
 
 .c_square_corner4_white{
-    content:url("img/token_corner4_white.png");
+    content:var(--token_corner4_white);
 }
 
 
@@ -175,76 +274,73 @@
 }
 
 #c_square_next_black:hover{
-    content:url("img/token_ready_black.png");
+    content:var(--token_ready_black);
 }
 
 #c_square_top_next_black:hover{
-    content:url("img/token_top_ready_black.png");
+    content:var(--token_top_ready_black);
 }
 
 #c_square_bottom_next_black:hover{
-    content:url("img/token_bottom_ready_black.png");
+    content:var(--token_bottom_ready_black);
 }
 
 #c_square_left_next_black:hover{
-    content:url("img/token_left_ready_black.png");
+    content:var(--token_left_ready_black);
 }
 
 #c_square_right_next_black:hover{
-    content:url("img/token_right_ready_black.png");
+    content:var(--token_right_ready_black);
 }
 
 #c_square_corner1_next_black:hover{
-    content:url("img/token_corner1_ready_black.png");
+    content:var(--token_corner1_ready_black);
 }
 
 #c_square_corner2_next_black:hover{
-    content:url("img/token_corner2_ready_black.png");
+    content:var(--token_corner2_ready_black);
 }
 
 #c_square_corner3_next_black:hover{
-    content:url("img/token_corner3_ready_black.png");
+    content:var(--token_corner3_ready_black);
 }
 
 #c_square_corner4_next_black:hover{
-    content:url("img/token_corner4_ready_black.png");
+    content:var(--token_corner4_ready_black);
 }
 
 #c_square_next_white:hover{
-    content:url("img/token_ready_white.png");
+    content:var(--token_ready_white);
 }
 
 #c_square_top_next_white:hover{
-    content:url("img/token_top_ready_white.png");
+    content:var(--token_top_ready_white);
 }
 
 #c_square_bottom_next_white:hover{
-    content:url("img/token_bottom_ready_white.png");
+    content:var(--token_bottom_ready_white);
 }
 
 #c_square_left_next_white:hover{
-    content:url("img/token_left_ready_white.png");
+    content:var(--token_left_ready_white);
 }
 
 #c_square_right_next_white:hover{
-    content:url("img/token_right_ready_white.png");
+    content:var(--token_right_ready_white);
 }
 
 #c_square_corner1_next_white:hover{
-    content:url("img/token_corner1_ready_white.png");
+    content:var(--token_corner1_ready_white);
 }
 
 #c_square_corner2_next_white:hover{
-    content:url("img/token_corner2_ready_white.png");
+    content:var(--token_corner2_ready_white);
 }
 
 #c_square_corner3_next_white:hover{
-    content:url("img/token_corner3_ready_white.png");
+    content:var(--token_corner3_ready_white);
 }
 
 #c_square_corner4_next_white:hover{
-    content:url("img/token_corner4_ready_white.png");
+    content:var(--token_corner4_ready_white);
 }
-
-
-
